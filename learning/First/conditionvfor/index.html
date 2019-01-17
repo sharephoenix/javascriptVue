@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://unpkg.com/vue@2.5.22"></script> -->
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+        <h1>v for</h1>
+        {{ characters[0] }}
+        {{ characters[1] }}
+        {{ characters[2] }}
+        <ul>
+            <li v-for="character in characters">
+                {{character}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="user in users">
+                {{user.name}} - {{user.age}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(user,index) in users">
+                {{index+1}} = {{user.name}} - {{user.age}}
+            </li>
+        </ul>
+        <div v-for="(user,index) in users">
+                <h3> == {{index+1}} = {{user.name}} - {{user.age}} </h3>
+                <p> Age = {{user.age}}</p>
+        </div>
+        <h2>Templege 效果一样 template 不会被渲染，而上面方法会吧 div 渲染出来</h2>
+        <template v-for="(user,index) in users">
+                <h3> == {{index+1}} = {{user.name}} - {{user.age}} </h3>
+                <p> Age = {{user.age}}</p>
+        </template>
+        <h2>Other</h2>
+        <div v-for="(user,index) in users">
+                <div v-for="(val,key) in user">
+                    <p>{{val}} == {{key}}</p>
+                </div>
+        </div>
+    </div>
+    <script src="app.js"> </script>
+</body>
+
+</html>

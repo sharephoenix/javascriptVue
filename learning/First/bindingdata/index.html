@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://unpkg.com/vue@2.5.22"></script> -->
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+          <h1> 双向数据绑定 / input / select / textarea </h1>
+          <label>姓名：</label>
+          <input ref="name" type="text" v-on:keyup="logName">
+          <span> {{ name }}</span>
+          <label>年龄：</label>
+          <input ref="age" type="text" v-on:keyup.enter="logAge">
+          <span> {{ age }}</span>
+          <label>地址：</label>
+          <input ref="address" type="text" v-model="address">
+          <span> {{ address }}</span>
+        </div>
+        <script src="app.js"> </script>
+    </body>
+</html>

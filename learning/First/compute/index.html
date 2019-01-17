@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://unpkg.com/vue@2.5.22"></script> -->
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+          <h1> Computed calulate </h1>
+          <div>Computed calulate 对于 dom 的刷新率不同 </p>
+              当虚拟 dom 和 real dom 相同时不用执行，否则会执行
+          </div> 
+          <button v-on:click="a++"> Add to A</button>
+          <button v-on:click="b++"> Add to B</button>
+          <p>A - {{a}}</p>
+          <p>B - {{b}}</p>
+          
+          <p> Age + A = {{ addToA() }}</p>
+          <p> Age + B = {{ addToB() }}</p>
+
+          <!-- <p> Age + A = {{ addToA }}</p>
+          <p> Age + B = {{ addToB }}</p> -->
+          
+        </div>
+        <script src="app.js"> </script>
+    </body>
+</html>

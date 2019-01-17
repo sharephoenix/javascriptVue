@@ -1,0 +1,12 @@
+#canvas{
+    width: 600px;
+    padding: 200px 20px;
+    text-align: center; 
+    border: 1px solid gray
+}
+
+.customspan {
+    width: 60px;
+    height: 60px;
+    background-color: #ff0000;
+}

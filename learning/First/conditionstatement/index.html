@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://unpkg.com/vue@2.5.22"></script> -->
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+          <h1> v-if 条件语句 </h1>
+          <button v-on:click="error = !error"> Toggle Error</button>
+          <button v-on:click="success = !success"> Toggle Success</button>
+          <!-- <p v-if="error">网络连接错误</p>
+          <p v-else-if="success">网络连接成功</p> -->
+          <p v-show="error">网络连接错误</p>
+          <p v-show="success">网络连接成功</p>
+
+        </div>
+        <script src="app.js"> </script>
+    </body>
+</html>

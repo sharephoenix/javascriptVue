@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://unpkg.com/vue@2.5.22"></script> -->
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1> 多个实例化对象 </h1>
+        <div id="vue-app-one">
+          <h1>{{title}}</h1>
+          <h2>{{greet}}</h2>
+          <button v-on:click="changeValue">changeTitle</button>
+        </div>
+        <div id="vue-app-two">
+          <h1>{{title}}</h1>
+          <h2>{{greet}}</h2>
+          <button v-on:click="changeValue">changeTitle</button>
+            </div>
+        <script src="app.js"> </script>
+    </body>
+</html>
