@@ -11,7 +11,7 @@
         <div id="vue-app">
             <h1> v-if 条件</h1>
             <button v-on:click="error = !error">Toggle Error</button>
-            <button v-on:click="success = !success">Toggle Success</button>
+            <button @click="success = !success">Toggle Success</button>
             <p v-if="error">网络了解错误：404</p>
             <p v-else-if="success">网络连接成功：200</p>
             <p v-if="success">网络连接成功：20000</p>
