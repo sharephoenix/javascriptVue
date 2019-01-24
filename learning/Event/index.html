@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://unpkg.com/vue@2.5.22"></script> -->
+    <script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+           <h1> Event </h1>
+           <button v-on:click="age++"> 涨一岁 </button>
+           <button v-on:click="age--"> 减一岁 </button>
+           <button v-on:click="add"> 涨一岁 function </button>
+           <button v-on:click="substract"> 减一岁 function </button>
+           <button v-on:dblclick="add"> 涨一岁 double click function </button>
+           <button v-on:dblclick="substract"> 减一岁 double click function </button>
+           <p> my age is {{ age }}</p>
+           <div id="canvas" v-on:mousemove="updateXY ">
+               {{x}} , {{y}}
+               <span class="customspans" v-on:mousemove="stopmoving"> Stop Moving</span>
+               <span class="customspans" v-on:mousemove.stop=""> Stop Moving System</span>
+           </div>
+           <a v-on:click.prevent ="alert()" href="http://www.baidu.com"> the new step</a>
+        </div>
+        <script src="app.js"> </script>
+    </body>
+</html>
