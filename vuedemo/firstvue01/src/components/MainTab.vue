@@ -56,6 +56,7 @@ export default {
   }
   .tabbarBottom {
     position: absolute;
+    width: 100%;
     bottom: 0px;
     display: flex;
     flex-direction: row;
