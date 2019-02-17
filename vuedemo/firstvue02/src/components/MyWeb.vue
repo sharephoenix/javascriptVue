@@ -2,7 +2,7 @@
     <div class="backweb">
       <div class="mywebtop">
       <div class="mywebicon"> icon </div>
-      <div class="mywebbutton"> <button @click="jumptouserinfo"> user info</button></div>
+      <div class="mywebbutton"> <button @click="jumptouserinfo"> {{loginstatetxt}}</button></div>
       </div>
       <div class="mywebcontent"> this is my web</div>
       <div class="footer">
@@ -15,7 +15,17 @@ export default {
   name: 'MyWeb',
   data () {
     return {
-      default: 'alexluan'
+      default: 'alexluan',
+      loginstate: false
+    }
+  },
+  computed: {
+    loginstatetxt: function () {
+      if (this.loginstate === true) {
+        return '已经登录'
+      } else {
+        return '登录'
+      }
     }
   },
   methods: {
@@ -23,7 +33,21 @@ export default {
       console.log('defaultaction')
     },
     jumptouserinfo: function () {
-      this.$router.push('/loginmsg')
+      if (this.loginstate === true) {
+        this.$router.push('/loginmsg')
+      } else {
+        alert('请去登录')
+        this.$router.push('/index')
+      }
+    }
+  },
+  mounted () {
+    const account = sessionStorage.getItem('account')
+    const password = sessionStorage.getItem('account')
+    if (account.length > 0 && password.length > 0) {
+      this.loginstate = true
+    } else {
+      this.loginstate = false
     }
   }
 }
@@ -51,13 +75,14 @@ export default {
   }
   .mywebbutton {
     float: right;
-    width: 44px;
-    height: 100%;
+    width: auto;
+    height: 44px;
     background-color: blueviolet;
     background-repeat: no-repeat;
     background-size: 44px 44px;
   }
   .myweb button {
+    display: inline-block;
     width: 44px;
     height: 100%;
   }
