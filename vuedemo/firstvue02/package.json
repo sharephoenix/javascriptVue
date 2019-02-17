@@ -1,8 +1,8 @@
 {
-  "name": "firstvue01",
+  "name": "firstvue02",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "apple <839864600@qq.com>",
+  "author": "alexluan <326083325@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -14,9 +14,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.6.6",
-    "vue-router": "^3.0.1",
-    "weex-ui": "^0.6.9"
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
