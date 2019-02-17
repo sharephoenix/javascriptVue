@@ -19,6 +19,8 @@ export default {
       console.log('defaultaction')
     },
     loginout: function () {
+      sessionStorage.setItem('password', '')
+      this.$router.replace('/index')
       console.log('退出登录')
       alert('退出登录成功')
     }
@@ -28,7 +30,6 @@ export default {
     const password = sessionStorage.getItem('password')
     this.account = account
     this.password = password
-    alert('mouted')
   }
 }
 </script>

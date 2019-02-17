@@ -1,9 +1,9 @@
 <template>
     <div class="maincls">
         <div class="mainlogin">
-        <input ref='account' :value="account" placeholder="请输入用户名"/>
-        <input ref='password' placeholder="请输入密码"/>
-        <input ref='repassword' placeholder="请再次输入密码"/>
+        <input ref='account' type="text" :model="account" placeholder="请输入用户名"/>
+        <input ref='password' type="text" placeholder="请输入密码"/>
+        <input ref='repassword' type="text" placeholder="请再次输入密码"/>
         <button @click="loginAction">登录</button>
         </div>
     </div>
@@ -44,14 +44,19 @@ export default {
       if (account !== undefined && password !== undefined) {
         sessionStorage.setItem('account', account)
         sessionStorage.setItem('password', password)
+        this.account = account
+        this.password = password
         return true
       } else {
         return false
       }
-    },
-    mounted () {
-      alert('mouted')
     }
+  },
+  mounted () {
+    const account = sessionStorage.getItem('account')
+    const password = sessionStorage.getItem('password')
+    this.$refs.account.value = account
+    this.$refs.password.value = password
   }
 }
 </script>
