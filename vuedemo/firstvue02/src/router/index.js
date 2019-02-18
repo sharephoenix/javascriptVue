@@ -6,7 +6,6 @@ import LoginMsg from '@/components/LoginMsg'
 import MyWeb from '@/components/MyWeb'
 
 Vue.use(Router)
-// Object.prototype(MainIndex.name, MainIndex)
 
 export default new Router({
   routes: [

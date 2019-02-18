@@ -4,7 +4,7 @@
         <input ref='account' type="text" :model="account" placeholder="请输入用户名"/>
         <input ref='password' type="text" placeholder="请输入密码"/>
         <input ref='repassword' type="text" placeholder="请再次输入密码"/>
-        <button @click="loginAction">登录</button>
+        <button @click="loginAction">{{ logininfo }}</button>
         </div>
     </div>
 </template>
@@ -13,8 +13,7 @@ export default {
   name: 'MainIndex',
   data () {
     return {
-      account: '',
-      password: ''
+      logininfo: '登录'
     }
   },
   methods: {
