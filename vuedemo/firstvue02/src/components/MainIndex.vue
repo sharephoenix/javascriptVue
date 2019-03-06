@@ -18,6 +18,7 @@ export default {
   },
   methods: {
     loginAction: function () {
+      this.$router.go(-1)
       const account = this.$refs.account.value
       const password = this.$refs.password.value
       const repassword = this.$refs.repassword.value
