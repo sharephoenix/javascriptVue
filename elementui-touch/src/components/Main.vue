@@ -1,17 +1,17 @@
 <template>
   <div class="body">
     <el-container style="height: 500px; border: 1px solid #eee">
-  <el-aside width="150pt" class="left-menu">
-    <el-menu :default-openeds="openMenu" @open="handleOpen" @select="handleNodeClick">
+  <el-aside :width="asideWidth" class="left-menu-aside">
+    <el-menu class="left-menu" :default-openeds="openMenu" @open="handleOpen" @select="handleNodeClick" :collapse="isCollapse">
       <el-submenu index="1">
-        <template slot="title"><i class="el-icon-menu"></i>XHBShare</template>
+        <template slot="title"><i class="el-icon-menu "></i>{{isCollapse? '' : 'XHBShare'}}</template>
           <el-menu-item index="1-1">shareWeChat</el-menu-item>
           <el-menu-item index="1-2">shareMoments</el-menu-item>
           <el-menu-item index="1-3">shareQQ</el-menu-item>
           <el-menu-item index="1-4">shareQZone</el-menu-item>
       </el-submenu>
       <el-submenu index="2">
-        <template slot="title"><i class="el-icon-menu"></i>XHBNavigationModule</template>
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBNavigationModule'}}</template>
           <el-menu-item index="2-1">setTitle</el-menu-item>
           <el-menu-item index="2-2" disabled>popToRoot</el-menu-item>
           <el-menu-item index="2-3" disabled>close</el-menu-item>
@@ -23,20 +23,21 @@
           <el-menu-item index="2-9">getParams</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
-        <template slot="title"><i class="el-icon-menu"></i>XHBLoginInfo</template>
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBLoginInfo'}}</template>
           <el-menu-item index="3-1">localUserInfoAsync</el-menu-item>
           <el-menu-item index="3-2">localUserInfo</el-menu-item>
       </el-submenu>
       <el-submenu index="0">
-        <template slot="title"><i class="el-icon-menu"></i>XHBDefault</template>
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBDefault'}}</template>
           <el-menu-item index="0-1">Default</el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>
   
   <el-container>
-    <el-header style="text-align: right; font-size: 12px">
-      <span @click="touchMe">touch</span>
+    <el-header class="container-header">
+      <el-button  type="primary" circle class="show-hide-button" @click="toCollapse">{{isCollapse ? 'Show' : 'Hide'}}</el-button>
+      <div><span @click="touchMe">touch</span></div>
     </el-header>
     
     <el-main>
@@ -65,10 +66,24 @@
       return {
         tableData: Array(20).fill(item),
         menuSelectedIndex: '1',
-        openMenu: ['1']
+        openMenu: ['1'],
+        isCollapse: true,
+        asideWidth: '50pt'
+      }
+    },
+    watch: {
+      isCollapse (res) {
+        if (res) {
+          this.asideWidth = '50pt'
+        } else {
+          this.asideWidth = '100pt'
+        }
       }
     },
     methods: {
+      toCollapse () {
+        this.isCollapse = !this.isCollapse
+      },
       touchMe () {
         // eslint-disable-next-line 
         console.log('touch me!!!')
@@ -109,9 +124,35 @@
     color: #333;
   }
 
-  .left-menu{
+  .eft-menu-aside{
     background-color: rgb(238, 241, 246);
     text-align: left;
+  }
+
+  .left-menu {
+  }
+
+  el-submenu {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right; 
+    font-size: 12px
+  }
+
+  .show-hide-button {
+    /* height: 33px; */
+    /* line-height: 33px; */
+  }
+
+  div el-submenu i{
+    word-wrap: break-word;
   }
 </style>
 
