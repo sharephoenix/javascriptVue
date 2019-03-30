@@ -23,13 +23,12 @@ export default {
   },
   watch: {
     log (res) {
-      alert(JSON.stringify(res))
       if (res === undefined || res === '') {
         this.log = '这里是显示的 log'
       }
     },
     customAction (res) {
-      alert(res)
+      this.log = ''
       switch (res) {
         case '3-1':
           this.buttonTitle = 'localUserInfoAsync'
@@ -44,7 +43,6 @@ export default {
   },
   methods: {
     async customClick () {
-      alert(JSON)
       this.log = await xhbSdk.useJsbridge(this.moduleAction)
     }
   },

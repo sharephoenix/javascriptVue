@@ -49,9 +49,7 @@ export default {
       if (this.moduleAction.event === '') {
         return
       }
-      alert(2)
       await xhbJsSdk.useJsbridge(this.moduleAction)
-      alert(1)
     }
   },
   mounted () {

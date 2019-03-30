@@ -25,7 +25,6 @@ export default {
   },
   watch: {
     log (res) {
-      alert(JSON.stringify(res))
       if (res === undefined || res === '') {
         this.log = '这里是显示的 log'
       }
