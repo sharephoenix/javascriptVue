@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <el-container style="height: 500px; border: 1px solid #eee">
-  <el-aside width="200px" class="left-menu">
+  <el-aside width="150pt" class="left-menu">
     <el-menu :default-openeds="openMenu" @open="handleOpen" @select="handleNodeClick">
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-menu"></i>XHBShare</template>
