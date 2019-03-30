@@ -68,7 +68,7 @@ class XHBSdk {
       moduleName: module,
       options: {module, event, params}
     }
-    this[_hbJSBridge] (modal)
+    return this[_hbJSBridge] (modal)
   }
 
   xhbSdk () {
