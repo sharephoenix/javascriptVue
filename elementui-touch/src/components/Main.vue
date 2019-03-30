@@ -13,27 +13,23 @@
       <el-submenu index="2">
         <template slot="title"><i class="el-icon-menu"></i>XHBNavigationModule</template>
           <el-menu-item index="2-1">setTitle</el-menu-item>
-          <el-menu-item index="2-2">popToRoot</el-menu-item>
-          <el-menu-item index="2-3">close</el-menu-item>
+          <el-menu-item index="2-2" disabled>popToRoot</el-menu-item>
+          <el-menu-item index="2-3" disabled>close</el-menu-item>
           <el-menu-item index="2-4">setBackgroundColor</el-menu-item>
-          <el-menu-item index="2-5">showBackItem</el-menu-item>
-          <el-menu-item index="2-6">hideBackItem</el-menu-item>
+          <el-menu-item index="2-5" disabled>showBackItem</el-menu-item>
+          <el-menu-item index="2-6" disabled>hideBackItem</el-menu-item>
           <el-menu-item index="2-7">navigateTo</el-menu-item>
           <el-menu-item index="2-8">changSafeArea</el-menu-item>
           <el-menu-item index="2-9">getParams</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
+        <template slot="title"><i class="el-icon-menu"></i>XHBLoginInfo</template>
+          <el-menu-item index="3-1">localUserInfoAsync</el-menu-item>
+          <el-menu-item index="3-2">localUserInfo</el-menu-item>
+      </el-submenu>
+      <el-submenu index="0">
         <template slot="title"><i class="el-icon-menu"></i>XHBDefault</template>
-          <el-menu-item index="3-1">setTitle</el-menu-item>
-          <el-menu-item index="3-2" disabled>popToRoot</el-menu-item>
-          <el-menu-item index="3-3" disabled>close</el-menu-item>
-          <el-menu-item index="3-4">setBackgroundColor</el-menu-item>
-          <el-menu-item index="3-5" disabled>showBackItem</el-menu-item>
-          <el-menu-item index="3-6" disabled>hideBackItem</el-menu-item>
-          <el-menu-item index="3-7">navigateTo</el-menu-item>
-          <el-menu-item index="3-8">changSafeArea</el-menu-item>
-          <el-menu-item index="3-9">forceRefresh</el-menu-item>
-          <el-menu-item index="3-10">getParams</el-menu-item>
+          <el-menu-item index="0-1">setTitle</el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>
@@ -46,7 +42,8 @@
     <el-main>
       <XHBShare :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === '1'"></XHBShare>
       <NavigationModule :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === '2'"></NavigationModule>
-      <XHBDefault v-show="menuSelectedIndex.substring(0, 1) === '3'"></XHBDefault>
+      <XHBLoginInfo :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === '3'"></XHBLoginInfo>
+      <XHBDefault v-show="menuSelectedIndex.substring(0, 1) === '0'"></XHBDefault>
     </el-main>
   </el-container>
 </el-container>
@@ -56,6 +53,7 @@
 <script>
   import XHBShare from '../views/xhb-share/XHBShare.vue'
   import NavigationModule from '../views/xhb-navigation-module/NavigationModule.vue'
+  import XHBLoginInfo from '../views/xhb-logininfo/XHBLoginInfo.vue'
   import XHBDefault from '../views/default/XHBDefault.vue'
   export default {
     data() {
@@ -88,6 +86,7 @@
     components: {
       XHBShare,
       NavigationModule,
+      XHBLoginInfo,
       XHBDefault
     }
   }
