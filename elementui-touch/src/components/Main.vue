@@ -29,7 +29,7 @@
       </el-submenu>
       <el-submenu index="0">
         <template slot="title"><i class="el-icon-menu"></i>XHBDefault</template>
-          <el-menu-item index="0-1">setTitle</el-menu-item>
+          <el-menu-item index="0-1">Default</el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>
