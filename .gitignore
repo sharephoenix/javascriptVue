@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
-
+node_modules
+./elementui-touch/node_modules
 # Log file
 *.log
 
