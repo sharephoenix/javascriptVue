@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <el-button @click="shareClick">{{buttonTitle}}</el-button>
+    <el-button @click="customClick">{{buttonTitle}}</el-button>
     <div class="log-cls">{{log}}</div>
   </div>
 </template>
@@ -10,7 +10,7 @@ import xhbJsSdk from '../../utils/xhb-js-sdk.js';
 
 export default {
   name: 'XHBShare',
-  props: ['shareAction'],
+  props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
@@ -23,7 +23,7 @@ export default {
     }
   },
   watch: {
-    shareAction (res) {
+    customAction (res) {
       switch (res) {
         case '1-1': 
           this.buttonTitle = '微信分享'
@@ -45,12 +45,13 @@ export default {
     }
   },
   methods: {
-    shareClick () {
+    async customClick () {
       if (this.moduleAction.event === '') {
         return
       }
-      alert(JSON.stringify(this.moduleAction))
-      xhbJsSdk.useJsbridge(this.moduleAction)
+      alert(2)
+      await xhbJsSdk.useJsbridge(this.moduleAction)
+      alert(1)
     }
   },
   mounted () {

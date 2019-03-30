@@ -52,7 +52,6 @@ class XHBSdk {
       },
       options
     )
-    alert(moduleName)
     // eslint-disable-next-line 
     return new Promise((resolve, reject) => {
       this[_initJSBridge](bridge => {

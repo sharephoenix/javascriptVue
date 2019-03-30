@@ -1,6 +1,7 @@
 <template>
   <div class="body">
-    <div @click="XHBDefault">XHBDefault</div>
+    <el-button @click="customClick">{{buttonTitle}}</el-button>
+    <div class="log-cls">{{log}}</div>
   </div>
 </template>
 
@@ -9,8 +10,14 @@ import xhbDefault from './xhb-default.js'
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
   name: 'XHBDefault',
+  data () {
+    return {
+      buttonTitle: '',
+      log: ''
+    }
+  },
   methods: {
-    XHBDefault () {
+    customClick () {
       xhbDefault.testAction()
       xhbSdk.useJsbridge({})
     }
@@ -25,6 +32,11 @@ export default {
     background-color: lightgray;
     height: 100%;
     border-radius: 5px;
+  }
+
+  .log-cls {
+    background-color: aliceblue;
+    width: 100%;
   }
 </style>
 

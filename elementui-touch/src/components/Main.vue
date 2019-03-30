@@ -16,25 +16,24 @@
           <el-menu-item index="2-2">popToRoot</el-menu-item>
           <el-menu-item index="2-3">close</el-menu-item>
           <el-menu-item index="2-4">setBackgroundColor</el-menu-item>
-          <el-menu-item index="2-4">showBackItem</el-menu-item>
-          <el-menu-item index="2-4">hideBackItem</el-menu-item>
-          <el-menu-item index="2-4">navigateTo</el-menu-item>
-          <el-menu-item index="2-4">changSafeArea</el-menu-item>
-          <el-menu-item index="2-4">forceRefresh</el-menu-item>
-          <el-menu-item index="2-4">getParams</el-menu-item>
+          <el-menu-item index="2-5">showBackItem</el-menu-item>
+          <el-menu-item index="2-6">hideBackItem</el-menu-item>
+          <el-menu-item index="2-7">navigateTo</el-menu-item>
+          <el-menu-item index="2-8">changSafeArea</el-menu-item>
+          <el-menu-item index="2-9">getParams</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title"><i class="el-icon-menu"></i>XHBDefault</template>
           <el-menu-item index="3-1">setTitle</el-menu-item>
-          <el-menu-item index="3-2">popToRoot</el-menu-item>
-          <el-menu-item index="3-3">close</el-menu-item>
+          <el-menu-item index="3-2" disabled>popToRoot</el-menu-item>
+          <el-menu-item index="3-3" disabled>close</el-menu-item>
           <el-menu-item index="3-4">setBackgroundColor</el-menu-item>
-          <el-menu-item index="3-4">showBackItem</el-menu-item>
-          <el-menu-item index="3-4">hideBackItem</el-menu-item>
-          <el-menu-item index="3-4">navigateTo</el-menu-item>
-          <el-menu-item index="3-4">changSafeArea</el-menu-item>
-          <el-menu-item index="3-4">forceRefresh</el-menu-item>
-          <el-menu-item index="3-4">getParams</el-menu-item>
+          <el-menu-item index="3-5" disabled>showBackItem</el-menu-item>
+          <el-menu-item index="3-6" disabled>hideBackItem</el-menu-item>
+          <el-menu-item index="3-7">navigateTo</el-menu-item>
+          <el-menu-item index="3-8">changSafeArea</el-menu-item>
+          <el-menu-item index="3-9">forceRefresh</el-menu-item>
+          <el-menu-item index="3-10">getParams</el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>
@@ -45,8 +44,8 @@
     </el-header>
     
     <el-main>
-      <XHBShare :shareAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === '1'"></XHBShare>
-      <NavigationModule v-show="menuSelectedIndex.substring(0, 1) === '2'"></NavigationModule>
+      <XHBShare :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === '1'"></XHBShare>
+      <NavigationModule :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === '2'"></NavigationModule>
       <XHBDefault v-show="menuSelectedIndex.substring(0, 1) === '3'"></XHBDefault>
     </el-main>
   </el-container>
