@@ -79,6 +79,20 @@
           <el-menu-item index="d-1">getDeviceInfoAsyn</el-menu-item>
           <el-menu-item index="d-2">getDeviceInfo</el-menu-item>
       </el-submenu>
+      <el-submenu index="e" style="text-align:left;">
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBScan'}}</template>
+          <el-menu-item index="e-1">scanCodeInfo</el-menu-item>
+      </el-submenu>
+      <el-submenu index="f" style="text-align:left;">
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBRouter'}}</template>
+          <el-menu-item index="f-1">openPage</el-menu-item>
+      </el-submenu>
+      <el-submenu index="g" style="text-align:left;">
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'storage'}}</template>
+          <el-menu-item index="g-1">setItem</el-menu-item>
+          <el-menu-item index="g-2">getItem</el-menu-item>
+          <el-menu-item index="g-3">removeItem</el-menu-item>
+      </el-submenu>
       <el-submenu index="0" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBDefault'}}</template>
           <el-menu-item index="0-1">Default</el-menu-item>
@@ -106,7 +120,9 @@
       <XHBFileUploadModule :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === 'b'"></XHBFileUploadModule>
       <XHBAudioModule :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === 'c'"></XHBAudioModule>
       <XHBAppDevice :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === 'd'"></XHBAppDevice>
-      
+      <XHBScan :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === 'e'"></XHBScan>
+      <XHBRouter :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === 'f'"></XHBRouter>
+      <XHBStorage :customAction="menuSelectedIndex" v-show="menuSelectedIndex.substring(0, 1) === 'g'"></XHBStorage>
       <XHBDefault v-show="menuSelectedIndex.substring(0, 1) === '0'"></XHBDefault>
     </el-main>
   </el-container>
@@ -128,6 +144,9 @@
   import XHBFileUploadModule from '../views/xhb-upload-module/XHBUploadModule.vue'
   import XHBAudioModule from '../views/xhb-audio-module/XHBAudioModule.vue'
   import XHBAppDevice from '../views/xhb-appdevice-module/XHBAppDevice.vue'
+  import XHBScan from '../views/xhb-scan-module/XHBScan.vue'
+  import XHBRouter from '../views/xhb-routers/XHBRoutes.vue'
+  import XHBStorage from '../views/xhb-storage/XHBStorage.vue' 
   import XHBDefault from '../views/default/XHBDefault.vue'
   export default {
     data() {
@@ -185,6 +204,9 @@
       XHBFileUploadModule,
       XHBAudioModule,
       XHBAppDevice,
+      XHBScan,
+      XHBRouter,
+      XHBStorage,
       XHBDefault
     }
   }
