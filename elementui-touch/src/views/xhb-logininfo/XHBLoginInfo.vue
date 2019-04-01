@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async customClick () {
-      this.log = await xhbSdk.useJsbridge(this.moduleAction)
+      this.log = await xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
     }
   },
   mounted () {

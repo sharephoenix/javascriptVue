@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import xhbJsSdk from '../../utils/xhb-js-sdk.js';
+import xhbSdk from '../../utils/xhb-js-sdk.js';
 
 export default {
   name: 'XHBShare',
@@ -49,7 +49,7 @@ export default {
       if (this.moduleAction.event === '') {
         return
       }
-      await xhbJsSdk.useJsbridge(this.moduleAction)
+      this.log = await xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
     }
   },
   mounted () {
