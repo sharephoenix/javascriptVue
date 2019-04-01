@@ -8,21 +8,25 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBAudioModule',
   props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBAudioModule',
         event: '',
         params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      if (res === 'c-1') {
+        this.buttonTitle = 'selectAudio'
+        this.moduleAction.event = 'selectAudio'
+      }
     }
   },
   methods: {

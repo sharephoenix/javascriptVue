@@ -8,21 +8,35 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBParamsModule',
   props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBParamsModule',
         event: '',
-        params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
+        params: ''
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      switch (res) {
+        case '9-1':
+          this.buttonTitle = 'getXpPrograms'
+          this.moduleAction.event = 'getXpPrograms'
+          break
+        case '9-2':
+          this.buttonTitle = 'getXpProgramsAsyn'
+          this.moduleAction.event = 'getXpProgramsAsyn'
+          break
+        case '9-3':
+          this.buttonTitle = 'getJsonParams'
+          this.moduleAction.event = 'getJsonParams'
+          break
+      }
     }
   },
   methods: {

@@ -8,21 +8,35 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBFileBrowseModule',
   props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBFileBrowseModule',
         event: '',
-        params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
+        params: ''
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      switch (res) {
+        case '8-1':
+          this.buttonTitle = 'openDocument'
+          this.moduleAction.event = 'openDocument'
+          break
+        case '8-2':
+          this.buttonTitle = 'saveImageWithBase64String'
+          this.moduleAction.event = 'saveImageWithBase64String'
+          break
+        case '8-3':
+          this.buttonTitle = 'selectImage'
+          this.moduleAction.event = 'selectImage'
+          break
+      }
     }
   },
   methods: {

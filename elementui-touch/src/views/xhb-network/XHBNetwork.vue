@@ -8,21 +8,25 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBNetworkModule',
   props: ['customAction'],
   data () {
     return {
-      log: '这里是显示的 log',
+      log: '亲爱的程序猿， 你需要在代码中填写相应的请求参数哦！！',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBNetworkModule',
         event: '',
-        params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
+        params: '' // "{"method": "get", "url": "", "params": "{"key": "value"}"}"
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      if (res === '5-1') {
+        this.buttonTitle = 'requestData'
+        this.moduleAction.event = 'requestData'
+      }
     }
   },
   methods: {

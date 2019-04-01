@@ -8,21 +8,31 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBAPPDeviceInfo',
   props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBAPPDeviceInfo',
         event: '',
         params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      switch (res) {
+        case 'd-1':
+          this.buttonTitle = 'getDeviceInfoAsyn'
+          this.event = 'getDeviceInfoAsyn'
+          break
+        case 'd-2':
+          this.buttonTitle = 'getDeviceInfo'
+          this.event = 'getDeviceInfo'
+          break
+      }
     }
   },
   methods: {

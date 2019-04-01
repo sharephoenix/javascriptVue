@@ -8,21 +8,25 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBMessage',
   props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBMessage',
         event: '',
-        params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
+        params: ''
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      if (res === 'a-1') {
+        this.buttonTitle = 'forwardMessage'
+        this.moduleAction.event = 'forwardMessage'
+      }
     }
   },
   methods: {

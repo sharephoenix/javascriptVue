@@ -95,7 +95,7 @@ export default {
       XHBNavigation.testAction()
     },
     async customClick () {
-      this.log = await xhbJsSdk.useJsbridge(this.moduleAction)
+      this.log = await xhbJsSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
     }
   },
   mounted () {
