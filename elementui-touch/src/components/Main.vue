@@ -3,14 +3,14 @@
     <el-container style="height: 500px; border: 1px solid #eee">
   <el-aside :width="asideWidth" class="left-menu-aside">
     <el-menu class="left-menu" :default-openeds="openMenu" @open="handleOpen" @select="handleNodeClick" :collapse="isCollapse">
-      <el-submenu index="1">
+      <el-submenu index="1" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu "></i>{{isCollapse? '' : 'XHBShare'}}</template>
           <el-menu-item index="1-1">shareWeChat</el-menu-item>
           <el-menu-item index="1-2">shareMoments</el-menu-item>
           <el-menu-item index="1-3">shareQQ</el-menu-item>
           <el-menu-item index="1-4">shareQZone</el-menu-item>
       </el-submenu>
-      <el-submenu index="2">
+      <el-submenu index="2" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBNavigationModule'}}</template>
           <el-menu-item index="2-1">setTitle</el-menu-item>
           <el-menu-item index="2-2" disabled>popToRoot</el-menu-item>
@@ -22,12 +22,16 @@
           <el-menu-item index="2-8">changSafeArea</el-menu-item>
           <el-menu-item index="2-9">getParams</el-menu-item>
       </el-submenu>
-      <el-submenu index="3">
+      <el-submenu index="3" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBLoginInfo'}}</template>
           <el-menu-item index="3-1">localUserInfoAsync</el-menu-item>
           <el-menu-item index="3-2">localUserInfo</el-menu-item>
       </el-submenu>
-      <el-submenu index="0">
+      <el-submenu index="4" style="text-align:left;">
+        <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBVideoModule'}}</template>
+          <el-menu-item index="4-1">selectVideo</el-menu-item>
+      </el-submenu>
+      <el-submenu index="0" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBDefault'}}</template>
           <el-menu-item index="0-1">Default</el-menu-item>
       </el-submenu>
@@ -67,8 +71,8 @@
         tableData: Array(20).fill(item),
         menuSelectedIndex: '1',
         openMenu: ['1'],
-        isCollapse: true,
-        asideWidth: '50pt'
+        isCollapse: false,
+        asideWidth: '150pt'
       }
     },
     watch: {
@@ -76,7 +80,7 @@
         if (res) {
           this.asideWidth = '50pt'
         } else {
-          this.asideWidth = '100pt'
+          this.asideWidth = '150pt'
         }
       }
     },
@@ -147,8 +151,8 @@
   }
 
   .show-hide-button {
-    /* height: 33px; */
-    /* line-height: 33px; */
+    /* height: 33px;
+    line-height: 33px; */
   }
 
   div el-submenu i{

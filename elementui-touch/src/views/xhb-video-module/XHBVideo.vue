@@ -8,26 +8,30 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBDefault',
+  name: 'XHBVideoModule',
   props: ['customAction'],
   data () {
     return {
       log: '这里是显示的 log',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBShare',
+        module: 'XHBVideoModule',
         event: '',
-        params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
+        params: ''
       }
     }
   },
   watch: {
-    customAction () {
+    customAction (res) {
+      if (res == '4-1') {
+        this.buttonTitle = 'selectVideo'
+        this.moduleAction.event = 'selectVideo'
+      }
     }
   },
   methods: {
     async customClick () {
-      await xhbSdk.useJsbridge(this.moduleAction)
+      this.log = await xhbSdk.useJsbridge(this.moduleAction)
     }
   },
   mounted () {
