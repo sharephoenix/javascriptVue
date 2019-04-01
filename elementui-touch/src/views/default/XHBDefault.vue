@@ -7,6 +7,7 @@
 
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
+
 export default {
   name: 'XHBDefault',
   props: ['customAction'],
@@ -27,7 +28,14 @@ export default {
   },
   methods: {
     async customClick () {
-      this.log = await xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
+      this.log = '默认按钮被点击'
+      this.log = xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
+      // try {
+      //   this.log = await xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
+      // } catch(error) {
+      //   // eslint-disable-next-line 
+      //   console.log(error)
+      // }
     }
   },
   mounted () {
