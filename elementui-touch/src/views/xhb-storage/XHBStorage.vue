@@ -27,14 +27,17 @@ export default {
         case 'g-1':
           this.buttonTitle = 'setItem'
           this.moduleAction.event = 'setItem'
+          this.moduleAction.params = {name: 'alexluan'}
           break
         case 'g-2':
           this.buttonTitle = 'getItem'
-          this.moduleAction.event = 'setItem'
+          this.moduleAction.event = 'getItem'
+          this.moduleAction.params = 'name'
           break
         case 'g-3':
           this.buttonTitle = 'removeItem'
-          this.moduleAction.event = 'setItem'
+          this.moduleAction.event = 'removeItem'
+          this.moduleAction.params = 'name'
           break
       }
     }
