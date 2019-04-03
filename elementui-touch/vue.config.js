@@ -5,12 +5,12 @@ module.exports = {
   pages: { 
     main:
       { template: './public/index.html',
-        entry: './src/main.js',
+        entry: './src/main.ts',
         filename: 'main.html' 
       },
     mod0:
       { template: './public/index.html',
-        entry: './pages/zeropage/main.js',
+        entry: './pages/zeropage/main.ts',
         filename: 'zero.html' 
       },
 

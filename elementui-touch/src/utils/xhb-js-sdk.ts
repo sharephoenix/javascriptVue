@@ -5,6 +5,9 @@ const _hbJSBridge = Symbol('_hbJSBridge')
 // const _request = Symbol('_request')
 
 class XHBSdk {
+
+  version: string
+
   constructor () {
     this.version = '1.0.1'
   }
@@ -13,15 +16,15 @@ class XHBSdk {
    * 初始化JSBridge
    * @param {*} callback
    */
-  [_initJSBridge] (callback) {
+  [_initJSBridge] (callback: any) {
     const userAgent = navigator.userAgent
     let isAndroid = /(android)/gi.test(userAgent)
     let isiOS = /(iphone|ipad)/gi.test(userAgent)
 
-    if (window.WebViewJavascriptBridge) return callback(WebViewJavascriptBridge) /* eslint-disable-line */
-    if (window.WVJBCallbacks) return window.WVJBCallbacks.push(callback)
+    if ((window as any).WebViewJavascriptBridge) return callback((window as any).WebViewJavascriptBridge) /* eslint-disable-line */
+    if ((window as any).WVJBCallbacks) return (window as any).WVJBCallbacks.push(callback)
 
-    window.WVJBCallbacks = [callback]
+    (window as any).WVJBCallbacks = [callback]
     const WVJBIframe = document.createElement('iframe')
     WVJBIframe.style.display = 'none'
 
@@ -42,7 +45,7 @@ class XHBSdk {
    * @param {*} moduleName 模块名
    * @param {*} options 其他选项
    */
-  [_hbJSBridge] ({moduleName, options}) {
+  [_hbJSBridge] ({moduleName, options}:any) {
     options = Object.assign(
       {
         reqId: '',
@@ -54,8 +57,8 @@ class XHBSdk {
     )
     // eslint-disable-next-line 
     return new Promise((resolve, reject) => {
-      this[_initJSBridge](bridge => {
-        bridge.callHandler(moduleName, options, res => {
+      this[_initJSBridge]((bridge: any)=> {
+        bridge.callHandler(moduleName, options, (res: any)=> {
           if (typeof res === 'string') {
             resolve(res)
           } else {
@@ -66,7 +69,7 @@ class XHBSdk {
     })
   }
   // eslint-disable-next-line
-  useJsbridge ({module, event, params}) {
+  useJsbridge ({module, event, params}: any) {
     const modal = {
       moduleName: module,
       options: {module, event, params}

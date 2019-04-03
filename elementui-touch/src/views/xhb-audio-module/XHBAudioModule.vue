@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import xhbSdk from '../../utils/xhb-js-sdk.js'
+import xhbSdk from '../../utils/xhb-js-sdk.ts'
 export default {
   name: 'XHBAudioModule',
   props: ['customAction'],

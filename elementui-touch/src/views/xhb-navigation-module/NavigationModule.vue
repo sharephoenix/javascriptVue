@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import XHBNavigation from './navigation-module.js'
-import xhbJsSdk from '../../utils/xhb-js-sdk.js';
+import XHBNavigation from './navigation-module.ts'
+import xhbJsSdk from '../../utils/xhb-js-sdk.ts';
 
 export default {
   name: 'XHBNavigation',
