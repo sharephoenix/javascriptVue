@@ -8,14 +8,14 @@
 <script>
 import xhbSdk from '../../utils/xhb-js-sdk.js'
 export default {
-  name: 'XHBNetworkModule',
+  name: 'XHBVideoModule',
   props: ['customAction'],
   data () {
     return {
       log: '需要自定义参数',
       buttonTitle: 'default',
       moduleAction: {
-        module: 'XHBNetworkModule',
+        module: 'XHBVideoModule',
         event: '',
         params: '' // "{"method": "get", "url": "", "params": "{"key": "value"}"}"
       }
@@ -23,9 +23,10 @@ export default {
   },
   watch: {
     customAction (res) {
-      if (res == '6-1') {
-        this.buttonTitle = 'requestData'
-        this.moduleAction.event = 'requestData'
+      this.log = '这里是显示的 log'
+      if (res == '4-1') {
+        this.buttonTitle = 'selectVideo'
+        this.moduleAction.event = 'selectVideo'
       }
     }
   },

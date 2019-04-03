@@ -17,20 +17,21 @@ export default {
       moduleAction: {
         module: 'XHBAPPDeviceInfo',
         event: '',
-        params: {url: String, title: String, imageUrl: String, content: String, imageBase64: 'Base64'}
+        params: ''
       }
     }
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       switch (res) {
         case 'd-1':
           this.buttonTitle = 'getDeviceInfoAsyn'
-          this.event = 'getDeviceInfoAsyn'
+          this.moduleAction.event = 'getDeviceInfoAsyn'
           break
         case 'd-2':
           this.buttonTitle = 'getDeviceInfo'
-          this.event = 'getDeviceInfo'
+          this.moduleAction.event = 'getDeviceInfo'
           break
       }
     }

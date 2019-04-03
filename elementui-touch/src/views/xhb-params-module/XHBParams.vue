@@ -23,6 +23,7 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       switch (res) {
         case '9-1':
           this.buttonTitle = 'getXpPrograms'
@@ -41,7 +42,7 @@ export default {
   },
   methods: {
     async customClick () {
-      this.log = await xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
+      this.log = await xhbSdk.useJsbridge(this.moduleAction)
     }
   },
   mounted () {

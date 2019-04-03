@@ -23,6 +23,7 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       if (res === 'c-1') {
         this.buttonTitle = 'selectAudio'
         this.moduleAction.event = 'selectAudio'

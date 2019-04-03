@@ -9,18 +9,21 @@
           <el-menu-item index="1-2">shareMoments</el-menu-item>
           <el-menu-item index="1-3">shareQQ</el-menu-item>
           <el-menu-item index="1-4">shareQZone</el-menu-item>
+          <el-menu-item index="1-5">shareClassroom</el-menu-item>
       </el-submenu>
       <el-submenu index="2" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBNavigationModule'}}</template>
           <el-menu-item index="2-1">setTitle</el-menu-item>
           <el-menu-item index="2-2" disabled>popToRoot</el-menu-item>
-          <el-menu-item index="2-3" disabled>close</el-menu-item>
+          <el-menu-item index="2-3">close</el-menu-item>
           <el-menu-item index="2-4">setBackgroundColor</el-menu-item>
           <el-menu-item index="2-5" disabled>showBackItem</el-menu-item>
           <el-menu-item index="2-6" disabled>hideBackItem</el-menu-item>
           <el-menu-item index="2-7">navigateTo</el-menu-item>
           <el-menu-item index="2-8">changSafeArea</el-menu-item>
           <el-menu-item index="2-9">getParams</el-menu-item>
+          <el-menu-item index="2-10">copyToPastboard</el-menu-item>
+          <el-menu-item index="2-11">closeCurrentPage</el-menu-item>
       </el-submenu>
       <el-submenu index="3" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBLoginInfo'}}</template>
@@ -33,7 +36,7 @@
       </el-submenu>
       <el-submenu index="5" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBNetworkModule'}}</template>
-          <el-menu-item index="5-1">requestData</el-menu-item>
+          <el-menu-item index="5-1" disabeld>requestData</el-menu-item>
       </el-submenu>
       <el-submenu index="6" style="text-align:left;">
         <template slot="title"><i class="el-icon-menu"></i>{{isCollapse? '' : 'XHBAudioPlayerModule'}}</template>

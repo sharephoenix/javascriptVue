@@ -23,6 +23,7 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       if (res === '5-1') {
         this.buttonTitle = 'requestData'
         this.moduleAction.event = 'requestData'

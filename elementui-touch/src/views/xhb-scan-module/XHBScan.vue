@@ -23,6 +23,7 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       if (res === 'e-1') {
         this.buttonTitle = 'scanCodeInfo'
         this.moduleAction.event = 'scanCodeInfo'

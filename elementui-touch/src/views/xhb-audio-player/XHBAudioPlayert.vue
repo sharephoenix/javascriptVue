@@ -2,6 +2,7 @@
   <div class="body">
     <el-button @click="customClick">{{buttonTitle}}</el-button>
     <div class="log-cls">{{log}}</div>
+    <div class="log-cls">{{stateLog}}</div>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
   data () {
     return {
       log: '不同的请求需要不同的参数哦！！！',
+      stateLog: '播放器状态',
       buttonTitle: 'default',
       moduleAction: {
         module: 'XHBAudioPlayerModule',
@@ -23,6 +25,8 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
+      const playInfo = this.getPlayInfo()
       switch (res) {
         case '6-1':
           this.buttonTitle = 'registerStateSignal'
@@ -35,6 +39,7 @@ export default {
         case '6-3':
           this.buttonTitle = 'play'
           this.moduleAction.event = 'play'
+          this.moduleAction.params = playInfo
           this.log = '需要按照要求填写播放列表哦'
           break
         case '6-4':
@@ -62,10 +67,57 @@ export default {
   },
   methods: {
     async customClick () {
+      if (this.moduleAction.event === 'registerStateSignal') {
+        this.observeCallback()
+      }
       this.log = await xhbSdk.useJsbridge(this.moduleAction) || '请填写相关方法参数'
+    },
+    getPlayInfo () {
+      return {"index": 0,
+      "data": [
+        {
+          "id": "1",
+          "title": "我是真的爱过你",
+          "picUrl": "http://img3.imgtn.bdimg.com/it/u=2654568910,985787723&fm=26&gp=0.jpg",
+          "musicUrl" : "https://link.hhtjim.com/163/509512959.mp3",
+          "contentUrl": "https://www.baidu.com",
+          "xpUrl": "",
+          "duration": 0,
+          "size": 0,
+          "isManager": true
+        }
+      ]
+      }
+    },
+    observeCallback () {
+        window.WebViewJavascriptBridge.registerHandler('XHBAudioPlayerModule', (data) => {
+          if (typeof info === 'string') {
+            // eslint-disable-next-line
+            console.log(info)
+          }
+          const { module, event, params } = JSON.parse(data)
+          if (module === 'XHBAudioPlayerModule' && event === 'registerStateSignal') {
+            const playingItem = params
+            if (typeof playingItem === 'string') {
+              this.stateLog = playingItem
+            } else {
+              this.stateLog = JSON.parse(playingItem)
+            }
+          }
+        })
     }
   },
   mounted () {
+    // stateLog
+    // Window.WebViewJavascriptBridge(bridge => {
+    //    bridge.registerHandler('XHBAudioPlayerModule', (res,) => {
+    //       if (typeof res === 'string') {
+    //         this.stateLog = res
+    //       } else {
+    //         this.stateLog = JSON.parse(res)
+    //       }
+    //     })
+    // })
   }
 }
 </script>

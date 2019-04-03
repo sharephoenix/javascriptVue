@@ -30,6 +30,7 @@ export default {
       }
     },
     customAction (res) {
+      this.log = '这里是显示的 log'
       switch (res) {
         case '2-1': 
           this.buttonTitle = 'setTitle'
@@ -65,8 +66,8 @@ export default {
           this.buttonTitle = 'navigateTo'
           this.moduleAction.event = 'navigateTo'
           this.moduleAction.params = {
-            path: '/main.html',
-            replace: 'replace',
+            path: '/zero.html',
+            replace: 'replacefalse',
             params:{
               first: 'firstvalue',
               second: 'secondvalue'
@@ -84,6 +85,16 @@ export default {
           this.buttonTitle = 'getParams'
           this.moduleAction.event = 'getParams'
           this.moduleAction.params = ''
+          break
+        case '2-10': 
+          this.buttonTitle = 'copyToPastboard'
+          this.moduleAction.event = 'copyToPastboard'
+          this.moduleAction.params = 'a;sdlkjfa;lskjdf;a'
+          break
+        case '2-11': 
+          this.buttonTitle = 'closeCurrentPage'
+          this.moduleAction.event = 'closeCurrentPage'
+          this.moduleAction.params = 'a;sdlkjfa;lskjdf;a'
           break
         default: 
           this.buttonTitle = 'Default'

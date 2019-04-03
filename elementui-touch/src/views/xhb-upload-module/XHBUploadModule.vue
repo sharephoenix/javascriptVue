@@ -23,9 +23,15 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       if (res === 'b-1') {
         this.buttonTitle = 'uploadFile'
         this.moduleAction.event = 'uploadFile'
+        this.moduleAction.params = {
+          event: 'voice', // voice \ word
+          bucketName: '',
+          url: ''
+        }
       }
     }
   },

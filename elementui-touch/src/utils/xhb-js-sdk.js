@@ -56,7 +56,11 @@ class XHBSdk {
     return new Promise((resolve, reject) => {
       this[_initJSBridge](bridge => {
         bridge.callHandler(moduleName, options, res => {
-          resolve(JSON.parse(res))
+          if (typeof res === 'string') {
+            resolve(res)
+          } else {
+            resolve(JSON.parse(res))
+          }
         })
       })
     })

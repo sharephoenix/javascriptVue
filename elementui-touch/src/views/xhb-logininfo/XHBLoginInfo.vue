@@ -28,7 +28,7 @@ export default {
       }
     },
     customAction (res) {
-      this.log = ''
+      this.log = '这里是显示的 log'
       switch (res) {
         case '3-1':
           this.buttonTitle = 'localUserInfoAsync'

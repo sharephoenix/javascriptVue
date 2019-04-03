@@ -23,9 +23,14 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       if (res === 'f-1') {
         this.buttonTitle = 'openPage'
         this.moduleAction.event = 'openPage'
+        this.moduleAction.params = {
+          url: 'https://xp.xiaoheiban.cn?params=native://20001&title=title',
+          toreplace: 'replacexxx'
+        }
       }
     }
   },

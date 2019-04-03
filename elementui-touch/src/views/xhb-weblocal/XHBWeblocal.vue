@@ -23,9 +23,11 @@ export default {
   },
   watch: {
     customAction (res) {
+      this.log = '这里是显示的 log'
       if (res === '7-1') {
         this.buttonTitle = 'getLocalUrl'
         this.moduleAction.event = 'getLocalUrl'
+        this.moduleAction.params = {path: '/zero.html', params: {name: 'alexluan'}}
       }
     }
   },
