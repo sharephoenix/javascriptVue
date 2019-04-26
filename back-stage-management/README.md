@@ -1,3 +1,5 @@
+https://www.npmjs.com/package/@vue/cli-plugin-typescript
+
 # back-stage-management
 
 ## Project setup
