@@ -16,7 +16,12 @@ import Main from './components/Main.vue';
 export default class App extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
+* {
+    padding: 0;
+    margin: 0;
+  }
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
