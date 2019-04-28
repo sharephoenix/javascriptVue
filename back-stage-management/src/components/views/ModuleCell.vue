@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <!-- <div class="body"> -->
     <div class="body-container">
       <div class="left-operation">
         <div class="input-cls cls-1" placeholder="moduleId">{{moduleId}}</div>
@@ -11,7 +11,7 @@
         <div class="button-cls" @click="deleteAction">删除</div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script lang="ts">
@@ -51,12 +51,12 @@ export default class ModuleCell extends Vue {
 
 <style lang="scss" scoped>
 $cellheight: 44px;
-  .body {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: gray;
+  // .body {
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: flex-start;
+  //   align-items: center;
+  //   background-color: gray;
     .body-container {
       margin-top: 3px;
       margin-bottom: 3px;
@@ -110,5 +110,5 @@ $cellheight: 44px;
       }
     }
     
-  }
+  // }
 </style>

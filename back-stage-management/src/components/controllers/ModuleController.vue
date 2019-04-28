@@ -9,7 +9,7 @@
     <el-container class="container">
       <div class="container-view">
         <div class="cell-container" v-for="item in data" v-bind:key="item.moduleId">
-          <module-cell class="cell" :moduleData="item"
+          <module-cell :moduleData="item"
           @editAction="editAction"
           @deleteAction="deleteAction"
           ></module-cell>
@@ -94,13 +94,6 @@ $container-height: 600px;
         background-color: gray;
         background-color: #ff0000;
         margin-top: 2px;
-        .cell {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: center;
-          background-color: gray;
-        }
       }
       
     }
