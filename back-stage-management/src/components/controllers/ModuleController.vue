@@ -8,12 +8,14 @@
     </el-header>
     <el-container class="container">
       <div class="container-view">
-        <div class="cell-container" v-for="item in data" v-bind:key="item.moduleId">
-          <module-cell :moduleData="item"
+        <template v-for="item in data">
+          <module-cell 
+          v-bind:key="item.moduleId"
+          :moduleData="item"
           @editAction="editAction"
           @deleteAction="deleteAction"
           ></module-cell>
-        </div>
+        </template>
       </div>
     </el-container>
   </div>
@@ -78,24 +80,14 @@ $container-height: 600px;
 
   .container {
     display: block;
-    flex: 1;
     width: 100%;
     height: $container-height;
     background-color: aqua;
     .container-view {
       display: block;
       width: 100%;
-      background-color: white;
-      .cell-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: gray;
-        background-color: #ff0000;
-        margin-top: 2px;
-      }
-      
+      background-color:gray;
+      margin-top: 2px;
     }
   }
   

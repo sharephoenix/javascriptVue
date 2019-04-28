@@ -66,6 +66,8 @@ $cellheight: 44px;
       width: 100%;
       height: $cellheight;
       align-items: center;
+      background-color: red;
+      border: 1px solid red;
       .left-operation {
         display: flex;
         justify-content: space-between;
