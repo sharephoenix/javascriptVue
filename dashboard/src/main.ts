@@ -14,8 +14,8 @@ let router = new VueRouter({
   //routes
   routes: [
   //一个个link对象
-  {path: '/login',name: 'app',component: Login},
-  {path: '/',name: 'app',component: HelloWorld}
+  {path: '/login',name: 'login',component: Login},
+  {path: '/',name: 'hello',component: HelloWorld}
 ]
 });
 

@@ -1,13 +1,19 @@
 <template>
   <div>
+    <header-vs>header</header-vs>
    Helloworld
   </div>
 </template>
 
 <script lang="ts">
+import Header from './customs/Header.vue';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({
+  components: {
+    'header-vs': Header,
+  },
+})
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 }
