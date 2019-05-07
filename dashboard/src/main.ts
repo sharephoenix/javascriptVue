@@ -3,7 +3,8 @@ import App from './App.vue'
 import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import Login from '@/components/Login.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
+import Home from '@/components/Home.vue'
+import Enter from '@/components/Enter.vue'
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -14,8 +15,9 @@ let router = new VueRouter({
   //routes
   routes: [
   //一个个link对象
+  {path: '/', name: 'enter', component: Enter},
   {path: '/login',name: 'login',component: Login},
-  {path: '/',name: 'hello',component: HelloWorld}
+  {path: '/home',name: 'home',component: Home}
 ]
 });
 

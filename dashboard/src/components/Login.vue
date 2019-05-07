@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <header-vs>header</header-vs>
+    <header-vs :action="action" @logoutAction="logoutAction">header</header-vs>
     <div class="content-panel">
       <div class="account">
         <el-input v-model="account" size="medium" type="text" placeholder="请输入您的账号"></el-input>
@@ -9,7 +9,7 @@
         <el-input v-model="password" size="medium" type="password" placeholder="请输入您的密码"></el-input>
       </div>
       <div class="login">
-        <el-button @click="lgoinAction" type="primary" icon="el-icon-arrow-left"> 登录 </el-button>
+        <el-button @click="loginAction" type="primary" icon="el-icon-arrow-left"> 登录 </el-button>
       </div>
     </div>
   </div>
@@ -29,8 +29,22 @@ export default class Login extends Vue {
   account: string = ''
   password: string = ''
 
-  lgoinAction () {
-    alert('account:' + this.account + '**password:' + this.password)
+  loginAction () {
+    if (this.account === 'admin' && this.password === 'qwe123') {
+      window.localStorage.setItem("account", this.account) 
+      window.localStorage.setItem("password", this.password)
+      this.$router.push('/home')
+    }
+  }
+
+  logoutAction () {
+    window.localStorage.removeItem("account") 
+    window.localStorage.removeItem("password")
+    this.$router.push('/login')
+  }
+
+  action (msg: string) {
+    alert(msg)
   }
 }
 </script>
