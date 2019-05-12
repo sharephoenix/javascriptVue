@@ -9,6 +9,7 @@
     "dev-build": "vue-cli-service build --mode development"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.8.2",
     "mockjs": "^1.0.1-beta3",
