@@ -6,13 +6,17 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import IndexNew from '../../api/index'
 
 @Component
 export default class Enter extends Vue {
   mounted() {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
-　　var r = window.location.search.substr(1).match(reg)
-    alert(r)
+    console.log(IndexNew.domain)
+    console.log(IndexNew.domain.TEST)
+    console.log(IndexNew.domain.VUE_APP_TEST)
+    this.getTest()
+//     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
+// 　　var r = window.location.search.substr(1).match(reg)
 
 // this.$router.push({name: 'login', query: {name: 'alex'}, params: {a: 'a'}})
 
@@ -23,6 +27,12 @@ export default class Enter extends Vue {
     //   } else {
     //     this.$router.push('/login')
     // }
+  }
+
+  getTest(){
+    // this.$http.get('/api/test').then(function(res){
+    //     console.log(res.data);
+    // });
   }
 }
 </script>

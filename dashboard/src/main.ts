@@ -15,7 +15,25 @@ let router = new VueRouter({
   //routes
   routes: [
   //一个个link对象
-  {path: '/', name: 'enter', component: Enter},
+  {path: '/',
+  name: 'enter',
+  component: Enter,
+  children: [
+    {
+      path: 'a',
+      component: Login,
+      children: [
+        {
+          path: 'b',
+          component: Home
+        }
+      ]
+    }
+  ],
+  meta: {
+    title: 'pagePermission',
+    roles: ['admin'] // or you can only set roles in sub nav
+  }},
   {path: '/login',name: 'login',component: Login},
   {path: '/home',name: 'home',component: Home}
 ]
