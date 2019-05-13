@@ -20,7 +20,7 @@ export default class Header extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 $headercolor: green;
   .body-header {
     background-color: $headercolor;

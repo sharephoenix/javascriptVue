@@ -5,6 +5,8 @@ import VueRouter from 'vue-router'
 import Login from '@/components/Login.vue'
 import Home from '@/components/Home.vue'
 import Enter from '@/components/Enter.vue'
+import MockB from '../mock/mock'
+MockB.testmock()
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false

@@ -7,14 +7,35 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import IndexNew from '../../api/index'
+import axios from 'axios'
 
 @Component
 export default class Enter extends Vue {
   mounted() {
-    console.log(IndexNew.domain)
-    console.log(IndexNew.domain.TEST)
-    console.log(IndexNew.domain.VUE_APP_TEST)
-    this.getTest()
+    const instance = axios.create({
+        baseURL: "http://www.baidu.com",
+        timeout: 3000,
+        headers: {
+          'X-Custom-Header': 'foobar'
+        },
+        responseType: 'json'
+      })
+
+      instance({
+        url: "/api/users",
+        method: "get"})
+      .then (res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    // this.$router.push('/enter/a')
+    // console.log(IndexNew.domain)
+    // console.log(IndexNew.domain.TEST)
+    // console.log(IndexNew.domain.VUE_APP_TEST)
+    // this.getTest()
+
 //     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
 // 　　var r = window.location.search.substr(1).match(reg)
 
